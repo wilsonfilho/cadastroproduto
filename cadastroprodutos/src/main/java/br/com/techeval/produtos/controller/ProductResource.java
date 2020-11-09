@@ -3,6 +3,8 @@ package br.com.techeval.produtos.controller;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.http.MediaType.APPLICATION_XML_VALUE;
 
+import java.net.URISyntaxException;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +47,7 @@ public class ProductResource {
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Produto Criado com Sucesso!")})
 	@ApiImplicitParams({@ApiImplicitParam(name = "produto", value = "Estrutura para criação de produto.", dataType = "Cadastrar Produto", required = true)})
 	
-	public ResponseEntity<Produtos> postProduct(@Valid @RequestBody Produtos produto) {
+	public ResponseEntity<Produtos> postProduct(@Valid @RequestBody Produtos produto)   throws URISyntaxException {
 		Produtos produtoSave = service.salvarProduto(produto);
 		 // Send log via RabittMQ to the log server
         senderService.sendAdded(produto);
@@ -61,11 +63,11 @@ public class ProductResource {
 		@ApiImplicitParam(name = "sort", defaultValue = "asc",dataType = "String",value = "ordenação dos itens")
 	})
 
-	public ResponseEntity<Object> getAllProdutos(
+	public ResponseEntity<Object> getAllProdutos (
 			@RequestParam(value = "page", defaultValue = "0") int page,
 			@RequestParam(value = "limit",defaultValue = "5") int limit,
 			@RequestParam(value = "field", defaultValue = "id") String field,
-			@RequestParam(value = "sort", defaultValue = "asc") String order){
+			@RequestParam(value = "sort", defaultValue = "asc") String order)  throws URISyntaxException{
 		
 		return ResponseEntity.ok(service.listarTodosProdutos(PageRequest.of(page, limit, Direction.fromString(order), field)));
 	}
