@@ -6,10 +6,10 @@ Para salvar e visualizar a mensagens na fila será necessário instalar o gerenc
 
 Foi exposta uma Api que:
 
-> Lista todos os produtos;
-> Lista um produto por id;
-> Insere um novo produto;
-> Salva as mensagens na fila
+ Lista todos os produtos;
+ Lista um produto por id;
+ Insere um novo produto;
+ Salva as mensagens na fila
 
 Obs: O projeto ao iniciar já insere 3 produtos na base H2.
 
