@@ -11,6 +11,12 @@ Foi exposta uma Api que:
  -> Insere um novo produto;
  -> Salva as mensagens na fila
 
-Obs: O projeto ao iniciar já insere 3 produtos na base H2.
+Importante:
+
+--O projeto ao iniciar já insere 3 produtos na base H2;
+-- Para executar o projeto basta executar a classe CadastroProdutosApplication como Java Application;
+-- Utilize a porta padrão: 8080
+
+
 
 
