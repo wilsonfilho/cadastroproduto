@@ -11,7 +11,7 @@ import org.springframework.amqp.core.Queue;
 @Component
 @Lazy
 public class Sender {
-    private final String QUEUE_NAME = "LOG_MESSAGES_QUEUE";
+    private final String QUEUE_NAME = "LOG_CADASTRO_PRODUTO";
 
     @Autowired
     RabbitMessagingTemplate template;

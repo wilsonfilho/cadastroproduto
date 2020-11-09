@@ -48,7 +48,7 @@ public class ProductResource {
 	public ResponseEntity<Produtos> postProduct(@Valid @RequestBody Produtos produto) {
 		Produtos produtoSave = service.salvarProduto(produto);
 		 // Send log via RabittMQ to the log server
-        senderService.sendAdded(produtoSave);
+        senderService.sendAdded(produto);
 		return new ResponseEntity<>(produtoSave, HttpStatus.CREATED);
 	}
 
